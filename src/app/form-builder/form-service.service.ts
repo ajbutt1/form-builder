@@ -1,27 +1,29 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FormServiceService {
+  endPoint = environment.dev_url;
   constructor(private http: HttpClient) {}
   getControlsFromDb() {
-    return this.http.get('http://localhost:3000/formControls');
+    return this.http.get(`${this.endPoint}formControls`);
   }
   saveFormsInLocalDb(data: any) {
-    return this.http.post('http://localhost:3000/forms', data);
+    return this.http.post(`${this.endPoint}forms`, data);
   }
   getAllForms() {
-    return this.http.get('http://localhost:3000/forms');
+    return this.http.get(`${this.endPoint}forms`);
   }
   deleteForm(id: any) {
-    return this.http.delete(`http://localhost:3000/forms/${id}`);
+    return this.http.delete(`${this.endPoint}forms/${id}`);
   }
   getFormWithId(id: any) {
-    return this.http.get(`http://localhost:3000/forms/${id}`);
+    return this.http.get(`${this.endPoint}forms/${id}`);
   }
   updateFormInLocalDb(id: any, data: any) {
-    return this.http.put(`http://localhost:3000/forms/${id}`, { ...data });
+    return this.http.put(`${this.endPoint}forms/${id}`, { ...data });
   }
 }

@@ -9,6 +9,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTableModule } from '@angular/material/table';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSelectModule } from '@angular/material/select';
 
 const Components = [
   DragDropModule,
@@ -20,6 +21,7 @@ const Components = [
   MatSlideToggleModule,
   MatTableModule,
   MatSnackBarModule,
+  MatSelectModule,
 ];
 
 @NgModule({

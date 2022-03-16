@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { FormBuilderModule } from './form-builder/form-builder.module';
 import { MaterialModule } from './material.module';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,6 +17,7 @@ import { MaterialModule } from './material.module';
     BrowserModule,
     AppRoutingModule,
     CoreModule,
+    CommonModule,
     FormBuilderModule,
     MaterialModule,
     ReactiveFormsModule,

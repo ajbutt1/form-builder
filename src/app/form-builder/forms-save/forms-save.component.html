@@ -9,10 +9,18 @@
         <input matInput formControlName="fileName" required />
       </mat-form-field>
       <br />
-      <mat-form-field appearance="fill" style="margin: 1rem">
+      <mat-form-field appearance="fill">
+        <mat-label>Favorite food</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let food of foods" [value]="food.value">
+            {{ food.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <!-- <mat-form-field appearance="fill" style="margin: 1rem">
         <mat-label>File type</mat-label>
         <input matInput formControlName="fileType" required />
-      </mat-form-field>
+      </mat-form-field> -->
     </div>
     <p *ngIf="isFormAlreadyPresent">Form already present</p>
     <p *ngIf="isFormAlreadyPresent">Do you want to override?</p>
