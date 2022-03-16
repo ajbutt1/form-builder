@@ -1,0 +1,18 @@
+<mat-card>
+  <h2 mat-dialog-title>Are you sure you want to delete?</h2>
+  <mat-dialog-content class="mat-typography"> </mat-dialog-content>
+  <mat-dialog-actions class="d-flex justify-content-between">
+    <button mat-button mat-dialog-close class="btn btn-secondary">
+      Cancel
+    </button>
+    <button
+      class="btn btn-secondary"
+      mat-button
+      [mat-dialog-close]="true"
+      cdkFocusInitial
+      (click)="handleDeleteField()"
+    >
+      Delete
+    </button>
+  </mat-dialog-actions>
+</mat-card>

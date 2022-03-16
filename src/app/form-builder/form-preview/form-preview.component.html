@@ -1,0 +1,29 @@
+<mat-card>
+  <h2 class="mx-3">Preview</h2>
+  <div *ngFor="let control of controls">
+    <mat-form-field
+      *ngIf="
+        ['text', 'email', 'password', 'tel', 'number'].includes(control.type)
+      "
+      class="example-full-width"
+      style="background-color: #6fb2d2; color: rebeccapurple; margin: 1rem"
+      appearance="fill"
+    >
+      <mat-label>{{ control.label }}</mat-label>
+      <input
+        matInput
+        placeholder="Enter txt"
+        value=""
+        type="{{ control.type }}"
+        [required]="control.validators.required"
+      />
+    </mat-form-field>
+    <button
+      *ngIf="control.type === 'button' || control.type === 'submit'"
+      class="btn btn-primary"
+      type="{{ control.type }}"
+    >
+      {{ control.value }}
+    </button>
+  </div>
+</mat-card>

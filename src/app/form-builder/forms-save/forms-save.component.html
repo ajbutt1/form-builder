@@ -1,0 +1,35 @@
+<mat-card>
+  <h2 class="warning">
+    {{ data.isUpdateModeOn ? "Update Form" : "Save Form" }}
+  </h2>
+  <form [formGroup]="saveForm" (ngSubmit)="handleSaveForm()">
+    <div>
+      <mat-form-field appearance="fill" style="margin: 1rem">
+        <mat-label>File name</mat-label>
+        <input matInput formControlName="fileName" required />
+      </mat-form-field>
+      <br />
+      <mat-form-field appearance="fill" style="margin: 1rem">
+        <mat-label>File type</mat-label>
+        <input matInput formControlName="fileType" required />
+      </mat-form-field>
+    </div>
+    <p *ngIf="isFormAlreadyPresent">Form already present</p>
+    <p *ngIf="isFormAlreadyPresent">Do you want to override?</p>
+    <div class="d-flex justify-content-between">
+      <button mat-button mat-dialog-close class="btn btn-secondary">
+        Cancel
+      </button>
+      <button class="btn btn-primary" *ngIf="!isFormAlreadyPresent">
+        {{ data.isUpdateModeOn ? "Update" : "Save" }}
+      </button>
+      <button
+        class="btn btn-primary"
+        *ngIf="isFormAlreadyPresent"
+        (click)="handleOverview()"
+      >
+        OverWrite
+      </button>
+    </div>
+  </form>
+</mat-card>

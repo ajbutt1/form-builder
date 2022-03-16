@@ -1,0 +1,157 @@
+{
+  "formControls": [
+    {
+      "type": "text",
+      "name": "firstName",
+      "value": "",
+      "label": "TextField",
+      "validators": {
+        "minLength": 1,
+        "maxLength": 1,
+        "required": true
+      }
+    },
+    {
+      "type": "email",
+      "name": "someEmail",
+      "value": "",
+      "label": "Email",
+      "validators": {
+        "required": true
+      }
+    },
+    {
+      "type": "password",
+      "name": "somepassword",
+      "value": "",
+      "label": "Password",
+      "validators": {
+        "minLength": 1,
+        "maxLength": 1,
+        "required": true
+      }
+    },
+    {
+      "type": "tel",
+      "name": "someNumber",
+      "value": "",
+      "label": "PhoneNumber",
+      "validators": {
+        "minLength": 1,
+        "maxLength": 1,
+        "required": true
+      }
+    },
+    {
+      "type": "number",
+      "name": "someNumber",
+      "value": "",
+      "label": "Number",
+      "validators": {
+        "minLength": 1,
+        "maxLength": 1,
+        "required": true
+      }
+    },
+    {
+      "type": "button",
+      "name": "someButton",
+      "value": "Button",
+      "label": "Button"
+    },
+    {
+      "type": "submit",
+      "name": "someSubmit",
+      "value": "Submit",
+      "label": "Submit"
+    }
+  ],
+  "forms": [
+    {
+      "id": 1647422190673,
+      "fileName": "first",
+      "fileType": "login",
+      "controls": [
+        {
+          "name": "firstName",
+          "label": "TextField",
+          "validators": {
+            "minLength": 1,
+            "maxLength": 1,
+            "required": false
+          },
+          "id": 1647422183881,
+          "type": "text",
+          "value": ""
+        },
+        {
+          "type": "text",
+          "name": "firstName",
+          "value": "",
+          "label": "TextField",
+          "validators": {
+            "minLength": 1,
+            "maxLength": 1,
+            "required": true
+          },
+          "id": 1647422175365
+        }
+      ]
+    },
+    {
+      "id": 1647422214399,
+      "fileName": "register",
+      "fileType": "register",
+      "controls": [
+        {
+          "type": "text",
+          "name": "firstName",
+          "value": "",
+          "label": "TextField",
+          "validators": {
+            "minLength": 1,
+            "maxLength": 1,
+            "required": true
+          },
+          "id": 1647422195961
+        },
+        {
+          "type": "tel",
+          "name": "someNumber",
+          "value": "",
+          "label": "PhoneNumber",
+          "validators": {
+            "minLength": 1,
+            "maxLength": 1,
+            "required": true
+          },
+          "id": 1647422268765
+        },
+        {
+          "type": "password",
+          "name": "somepassword",
+          "value": "",
+          "label": "Password",
+          "validators": {
+            "minLength": 1,
+            "maxLength": 1,
+            "required": true
+          },
+          "id": 1647422253435
+        },
+        {
+          "type": "password",
+          "name": "somepassword",
+          "value": "",
+          "label": "Password",
+          "validators": {
+            "minLength": 1,
+            "maxLength": 1,
+            "required": true
+          },
+          "id": 1647422196944
+        }
+      ]
+    }
+  ]
+}

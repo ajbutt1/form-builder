@@ -1,0 +1,96 @@
+<div class="row mx-4">
+  <div class="col-lg-3">
+    <div class="example-container">
+      <h6 class="mt-5">Form Fields</h6>
+      <div
+        cdkDropList
+        #todoList="cdkDropList"
+        [cdkDropListData]="controls"
+        [cdkDropListConnectedTo]="[doneList]"
+        class="example-list"
+      >
+        <div class="example-box" *ngFor="let item of controls" cdkDrag>
+          {{ item.label }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="example-container">
+      <h6 class="mt-5">Forms</h6>
+      <div
+        cdkDropList
+        #doneList="cdkDropList"
+        [cdkDropListData]="formFields"
+        [cdkDropListConnectedTo]="[todoList]"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)"
+      >
+        <div *ngIf="formFields && formFields.length > 0">
+          <div class="example-box1" *ngFor="let item of formFields" cdkDrag>
+            <div class="row">
+              <div class="col-lg-6">
+                <mat-form-field
+                  *ngIf="
+                    ['text', 'email', 'password', 'tel', 'number'].includes(
+                      item.type
+                    )
+                  "
+                  class="example-full-width"
+                  style="background-color: #fff; color: #000; margin: 1rem"
+                  appearance="fill"
+                >
+                  <mat-label>{{ item.label }}</mat-label>
+                  <input
+                    matInput
+                    placeholder="Enter txt"
+                    value=""
+                    type="{{ item.type }}"
+                    [required]="item.validators.required"
+                    style="color: #000"
+                  />
+                </mat-form-field>
+                <button
+                  *ngIf="item.type === 'button' || item.type === 'submit'"
+                  class="btn btn-light"
+                  type="{{ item.type }}"
+                  style="margin: 1rem"
+                >
+                  {{ item.value }}
+                </button>
+              </div>
+              <div class="col-lg-6 py-4">
+                <mat-icon
+                  class="pink-txt-color txt-warning"
+                  style="margin-right: 2rem; margin-left: 2rem; color: #d82e2f"
+                  (click)="handleDelete(item.id)"
+                  >delete</mat-icon
+                >
+                <mat-icon
+                  class="pink-txt-color"
+                  style="color: #d82e2f"
+                  (click)="handleUpdateField(item)"
+                  >edit</mat-icon
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="mx-3 my-2 d-flex justify-content-between">
+            <button class="btn btn-primary" (click)="handleSaveForm()">
+              {{ isUpdateModeOn ? "Update" : "Save" }}
+            </button>
+            <button class="btn btn-primary" (click)="handlePreview()">
+              Preview
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 mt-4">
+    <mat-card class="mt-5" style="background-color: #1a2432; color: #fff">
+      <pre>{{ formFields | json }}</pre>
+    </mat-card>
+  </div>
+</div>

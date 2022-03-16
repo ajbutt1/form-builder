@@ -1,0 +1,8 @@
+.nav-item a,
+.navbar-brand,
+.nav-item a:hover,
+.navbar-brand:hover,
+.nav-item a:focus,
+.navbar-brand:focus {
+  color: #fff;
+}

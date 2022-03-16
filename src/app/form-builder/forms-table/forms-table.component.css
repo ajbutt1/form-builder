@@ -1,0 +1,22 @@
+table {
+  width: 80%;
+  background-color: #1a2432;
+  border: 1px solid #fff;
+}
+.el-color-white {
+  color: #fff;
+}
+td.mat-cell {
+  border: 1px solid #fff;
+}
+
+th.mat-header-cell,
+td.mat-cell,
+td.mat-footer-cell {
+  border: 1px solid #fff;
+}
+th.mat-header-cell[_ngcontent-idv-c162],
+td.mat-cell[_ngcontent-idv-c162],
+td.mat-footer-cell[_ngcontent-idv-c162] {
+  padding-left: 2rem;
+}
