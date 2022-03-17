@@ -8,7 +8,7 @@
         <div *ngIf="loginFormJson">
           <h3 class="text-center">Login</h3>
           <div>
-            <form [formGroup]="loginForm" (ngSubmit)="handleLogin()">
+            <form [formGroup]="loginForm">
               <div *ngFor="let item of loginFormJson[0].controls">
                 <mat-form-field
                   *ngIf="
@@ -46,7 +46,6 @@
                 <button
                   *ngIf="item.type === 'button' || item.type === 'submit'"
                   class="btn btn-primary"
-                  type="{{ item.type }}"
                   style="margin: 1rem"
                   (click)="handleLogin()"
                 >

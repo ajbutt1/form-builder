@@ -8,7 +8,7 @@
         <div *ngIf="registerFormJson">
           <h3 class="text-center">Register</h3>
           <div>
-            <form [formGroup]="registerForm" (ngSubmit)="handleRegister()">
+            <form [formGroup]="registerForm">
               <div *ngFor="let item of registerFormJson[0].controls">
                 <mat-form-field
                   *ngIf="
@@ -30,13 +30,11 @@
                     [required]="item.validators.required"
                     style="color: #000"
                   />
-                  <mat-error
-                    *ngIf="registerForm.invalid && item.type === 'email'"
+                  <mat-error *ngIf="item.type === 'email'"
                     >Invalid {{ item.type }}</mat-error
                   >
                   <mat-error
                     *ngIf="
-                      registerForm.invalid &&
                       item.type !== 'email' &&
                       item.type !== 'button' &&
                       item.type !== 'submit'
@@ -46,7 +44,6 @@
                   >
                 </mat-form-field>
                 <button
-                  type="button"
                   *ngIf="item.type === 'button' || item.type === 'submit'"
                   class="btn btn-primary"
                   style="margin: 1rem"
