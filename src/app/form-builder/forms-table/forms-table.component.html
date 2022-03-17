@@ -1,7 +1,7 @@
-<div *ngIf="dataSource.length === 0" class="mx-4 my-4">
+<div *ngIf="dataSource && dataSource.length === 0" class="mx-4 my-4">
   <h3>No table to show</h3>
 </div>
-<div *ngIf="dataSource.length !== 0">
+<div *ngIf="dataSource && dataSource.length !== 0">
   <h2 style="margin: 2%">User Created Forms are :</h2>
   <table
     mat-table
@@ -31,23 +31,20 @@
         <div>
           <mat-icon
             class="pink-txt-color"
-            style="margin-right: 1rem"
+            style="margin-right: 1rem; color: #000"
             (click)="handleFormRowUpdate(element)"
-            color="accent"
             >edit</mat-icon
           >
           <mat-icon
             class="pink-txt-color"
-            style="margin-right: 1rem"
+            style="margin-right: 1rem; color: #000"
             (click)="deleteRowFromTable(element.id)"
-            color="accent"
             >delete</mat-icon
           >
           <mat-icon
             class="pink-txt-color"
-            style="margin-right: 1rem"
+            style="margin-right: 1rem; color: #000"
             (click)="handlePreviewInTable(element.controls)"
-            color="accent"
             >preview</mat-icon
           >
         </div>

@@ -10,6 +10,8 @@ import { CoreModule } from './core/core.module';
 import { FormBuilderModule } from './form-builder/form-builder.module';
 import { MaterialModule } from './material.module';
 import { CommonModule } from '@angular/common';
+import { LoginComponent } from './auth/login/login.component';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,6 +25,7 @@ import { CommonModule } from '@angular/common';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    AuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

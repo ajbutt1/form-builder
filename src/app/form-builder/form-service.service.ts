@@ -24,6 +24,6 @@ export class FormServiceService {
     return this.http.get(`${this.endPoint}forms/${id}`);
   }
   updateFormInLocalDb(id: any, data: any) {
-    return this.http.put(`${this.endPoint}forms/${id}`, { ...data });
+    return this.http.patch(`${this.endPoint}forms/${id}`, { ...data });
   }
 }

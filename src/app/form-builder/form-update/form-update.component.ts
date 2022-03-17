@@ -10,6 +10,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class FormUpdateComponent implements OnInit {
   editBtnModeOn = false;
   formUpdate = this.fb.group({});
+  minMaxLengthError = false;
   constructor(
     public dialogRef: MatDialogRef<FormUpdateComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -66,17 +67,22 @@ export class FormUpdateComponent implements OnInit {
     this.handleClose();
   }
   handleFieldUpdate() {
+    this.minMaxLengthError = false;
     if (this.formUpdate.valid) {
       // check if validator present then text case other wise btn case
       if (this.formUpdate.value.validators) {
         const { minLength, maxLength } = this.formUpdate.value.validators;
         // email updation case
-        if (!minLength && !maxLength) {
+        if (this.data.item.type === 'email') {
           this.updateFiedWithIndex();
-        }
-        // Text password number phone number
-        if (minLength > 0 && maxLength > 0 && minLength <= maxLength) {
-          this.updateFiedWithIndex();
+        } else {
+          // Text ,password ,number, phone number
+          if (minLength > 0 && maxLength > 0 && minLength <= maxLength) {
+            this.updateFiedWithIndex();
+          } else {
+            this.minMaxLengthError = true;
+            console.log(minLength, maxLength);
+          }
         }
       } else if (this.editBtnModeOn) {
         // button update

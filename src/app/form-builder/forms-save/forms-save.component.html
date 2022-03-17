@@ -9,21 +9,18 @@
         <input matInput formControlName="fileName" required />
       </mat-form-field>
       <br />
-      <mat-form-field appearance="fill">
-        <mat-label>Favorite food</mat-label>
-        <mat-select>
-          <mat-option *ngFor="let food of foods" [value]="food.value">
-            {{ food.viewValue }}
-          </mat-option>
+      <mat-form-field appearance="fill" class="mx-3">
+        <mat-label>Select form type</mat-label>
+        <mat-select formControlName="fileType" required>
+          <mat-option value="login"> Login </mat-option>
+          <mat-option value="register"> Register </mat-option>
         </mat-select>
       </mat-form-field>
-      <!-- <mat-form-field appearance="fill" style="margin: 1rem">
-        <mat-label>File type</mat-label>
-        <input matInput formControlName="fileType" required />
-      </mat-form-field> -->
     </div>
-    <p *ngIf="isFormAlreadyPresent">Form already present</p>
-    <p *ngIf="isFormAlreadyPresent">Do you want to override?</p>
+    <p *ngIf="isFormAlreadyPresent" style="color: red">Form already present</p>
+    <p *ngIf="isFormAlreadyPresent" style="color: red">
+      Do you want to override?
+    </p>
     <div class="d-flex justify-content-between">
       <button mat-button mat-dialog-close class="btn btn-secondary">
         Cancel

@@ -1,3 +1,62 @@
-<div *ngIf="!loginFormJson">No login form created yet!</div>
-
-<form></form>
+<div class="container">
+  <div class="d-flex justify-content-center align-item-center">
+    <div style="width: 600px; height: 600">
+      <mat-card>
+        <div *ngIf="!loginFormJson">
+          <h2>No login form created yet</h2>
+        </div>
+        <div *ngIf="loginFormJson">
+          <h3 class="text-center">Login</h3>
+          <div>
+            <form [formGroup]="loginForm" (ngSubmit)="handleLogin()">
+              <div *ngFor="let item of loginFormJson[0].controls">
+                <mat-form-field
+                  *ngIf="
+                    ['text', 'email', 'password', 'tel', 'number'].includes(
+                      item.type
+                    )
+                  "
+                  class="example-full-width"
+                  style="background-color: #fff; color: #000; margin: 1rem"
+                  appearance="fill"
+                >
+                  <mat-label>{{ item.label }}</mat-label>
+                  <input
+                    matInput
+                    placeholder="Enter txt"
+                    value=""
+                    type="{{ item.type }}"
+                    [formControlName]="item.name"
+                    [required]="item.validators.required"
+                    style="color: #000"
+                  />
+                  <mat-error *ngIf="item.type === 'email'"
+                    >Invalid {{ item.type }}</mat-error
+                  >
+                  <mat-error
+                    *ngIf="
+                      item.type !== 'email' &&
+                      item.type !== 'button' &&
+                      item.type !== 'submit'
+                    "
+                    >Min length {{ item.validators.minLength }} and Max length
+                    {{ item.validators.maxLength }}</mat-error
+                  >
+                </mat-form-field>
+                <button
+                  *ngIf="item.type === 'button' || item.type === 'submit'"
+                  class="btn btn-primary"
+                  type="{{ item.type }}"
+                  style="margin: 1rem"
+                  (click)="handleLogin()"
+                >
+                  {{ item.value }}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>

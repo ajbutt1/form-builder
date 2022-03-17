@@ -1,1 +1,64 @@
-<p>register works!</p>
+<div class="container">
+  <div class="d-flex justify-content-center align-item-center">
+    <div style="width: 600px; height: 600">
+      <mat-card>
+        <div *ngIf="!registerFormJson">
+          <h2>No register form created yet</h2>
+        </div>
+        <div *ngIf="registerFormJson">
+          <h3 class="text-center">Register</h3>
+          <div>
+            <form [formGroup]="registerForm" (ngSubmit)="handleRegister()">
+              <div *ngFor="let item of registerFormJson[0].controls">
+                <mat-form-field
+                  *ngIf="
+                    ['text', 'email', 'password', 'tel', 'number'].includes(
+                      item.type
+                    )
+                  "
+                  class="example-full-width"
+                  style="background-color: #fff; color: #000; margin: 1rem"
+                  appearance="fill"
+                >
+                  <mat-label>{{ item.label }}</mat-label>
+                  <input
+                    matInput
+                    placeholder="Enter txt"
+                    value=""
+                    type="{{ item.type }}"
+                    [formControlName]="item.name"
+                    [required]="item.validators.required"
+                    style="color: #000"
+                  />
+                  <mat-error
+                    *ngIf="registerForm.invalid && item.type === 'email'"
+                    >Invalid {{ item.type }}</mat-error
+                  >
+                  <mat-error
+                    *ngIf="
+                      registerForm.invalid &&
+                      item.type !== 'email' &&
+                      item.type !== 'button' &&
+                      item.type !== 'submit'
+                    "
+                    >Min length {{ item.validators.minLength }} and Max length
+                    {{ item.validators.maxLength }}</mat-error
+                  >
+                </mat-form-field>
+                <button
+                  type="button"
+                  *ngIf="item.type === 'button' || item.type === 'submit'"
+                  class="btn btn-primary"
+                  style="margin: 1rem"
+                  (click)="handleRegister()"
+                >
+                  {{ item.value }}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>
