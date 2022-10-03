@@ -62,13 +62,13 @@
               <div class="col-lg-6 py-4">
                 <mat-icon
                   class="pink-txt-color txt-warning"
-                  style="margin-right: 2rem; margin-left: 2rem; color: #d82e2f"
+                  style="margin-right: 2rem; margin-left: 2rem; color: #000"
                   (click)="handleDelete(item.id)"
                   >delete</mat-icon
                 >
                 <mat-icon
                   class="pink-txt-color"
-                  style="color: #d82e2f"
+                  style="color: #000"
                   (click)="handleUpdateField(item)"
                   >edit</mat-icon
                 >
@@ -77,10 +77,10 @@
           </div>
 
           <div class="mx-3 my-2 d-flex justify-content-between">
-            <button class="btn btn-primary" (click)="handleSaveForm()">
+            <button class="btn btn-info" (click)="handleSaveForm()">
               {{ isUpdateModeOn ? "Update" : "Save" }}
             </button>
-            <button class="btn btn-primary" (click)="handlePreview()">
+            <button class="btn btn-info" (click)="handlePreview()">
               Preview
             </button>
           </div>
@@ -89,7 +89,7 @@
     </div>
   </div>
   <div class="col-lg-3 mt-4">
-    <mat-card class="mt-5" style="background-color: #1a2432; color: #fff">
+    <mat-card class="mt-5">
       <pre>{{ formFields | json }}</pre>
     </mat-card>
   </div>

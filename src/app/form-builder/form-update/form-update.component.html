@@ -18,12 +18,26 @@
     <div formGroupName="validators" *ngIf="data.item.validators">
       <mat-slide-toggle formControlName="required">Required</mat-slide-toggle>
       <br />
-      <mat-form-field appearance="fill" *ngIf="data.item.validators.minLength">
+      <mat-form-field
+        appearance="fill"
+        *ngIf="
+          data.item.type !== 'email' &&
+          data.item.type !== 'button' &&
+          data.item.type !== 'submit'
+        "
+      >
         <mat-label>Min length</mat-label>
         <input matInput formControlName="minLength" type="number" />
       </mat-form-field>
       <br />
-      <mat-form-field appearance="fill" *ngIf="data.item.validators.maxLength">
+      <mat-form-field
+        appearance="fill"
+        *ngIf="
+          data.item.type !== 'email' &&
+          data.item.type !== 'button' &&
+          data.item.type !== 'submit'
+        "
+      >
         <mat-label>Max length</mat-label>
         <input matInput formControlName="maxLength" type="number" />
       </mat-form-field>
@@ -35,12 +49,12 @@
       <button
         class="btn btn-secondary"
         mat-button
-        [mat-dialog-close]="true"
         cdkFocusInitial
         (click)="handleFieldUpdate()"
       >
         Update
       </button>
     </div>
+    <h5 style="color: red" *ngIf="minMaxLengthError">Invalid min/max length</h5>
   </form>
 </mat-card>

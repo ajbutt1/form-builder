@@ -11,12 +11,6 @@ import { FormServiceService } from '../form-service.service';
   styleUrls: ['./forms-save.component.css'],
 })
 export class FormsSaveComponent implements OnInit {
-  foods = [
-    { value: 'steak-0', viewValue: 'Steak' },
-    { value: 'pizza-1', viewValue: 'Pizza' },
-    { value: 'tacos-2', viewValue: 'Tacos' },
-  ];
-
   saveForm = this.fb.group({
     fileName: [''],
     fileType: [''],

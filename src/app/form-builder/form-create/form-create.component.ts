@@ -34,10 +34,6 @@ export class FormCreateComponent implements OnInit {
   isUpdateModeOn = false;
   isUpdateModeId: any;
   formValues: any;
-  saveForm = this.fb.group({
-    fileName: [''],
-    fileType: [''],
-  });
 
   constructor(
     private formService: FormServiceService,
@@ -69,10 +65,6 @@ export class FormCreateComponent implements OnInit {
               fileName: response.fileName,
               fileType: response.fileType,
             };
-            this.saveForm.patchValue({
-              fileName: response.fileName,
-              fileType: response.fileType,
-            });
           });
       }
     });
